@@ -16,11 +16,12 @@ var facts = [
 "Sciophobia, or sciaphobia, is the fear of shadows."
 ];
 
-exports.module.handle = function(request, response){
+
+exports.handle = function(request, response){
   response.send(facts[~~(Math.random*facts.length)]);
 };
 
-exports.module.apiEntry = {
+exports.apiEntry = {
   title: 'Shadow Facts',
   routes: ['/shadowfacts'],
   description: 'Need facts about shadows? ShadowFacts has got you covered. ' +

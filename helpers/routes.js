@@ -1,13 +1,10 @@
+var express = require('express');
 var apiList = require('./apiList.js');
 
-exports.module.main = function(request, response){
-  response.sendfile('index.html');
-};
-
-exports.module.list = function(request, response){
+exports.list = function(request, response){
   response.send(apiList.list);
 };
 
-exports.module.api = function(request, response){
-  apiList.list[request.url](request, response);
+exports.api = function(request, response){
+  apiList.handler[request.url](request, response);
 };

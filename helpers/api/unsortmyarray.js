@@ -1,5 +1,5 @@
 //TODO: refactor to choose a random unsorting algorithm and unsort it in different ways each time
-exports.module.handle = function(request, response){
+exports.handle = function(request, response){
   if (!request.body && checkArray(response.body)){
     response.writeHead(400);
     response.end();
@@ -70,13 +70,10 @@ var unsortArray = function(array){
   return array;
 };
 
-exports.module.apiEntry = {
+exports.apiEntry = {
   title: 'Unsorted Arrays',
   routes: ['/unsortmyarray'],
   description: 'Need to unsort an array? Simply make a request to /unsortmyarray ' +
   'and it will return an unsorted, but not randomized, array. Only arrays of numbers ' +
   'will be accepted.'
 };
-
-
-
