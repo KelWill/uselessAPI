@@ -3,7 +3,12 @@ var fb = require('../fb.js');
 
 var weatherInfo = {};
 fb.weather.on('value', function(snapshot){
+  console.log(snapshot.val());
   weatherInfo = snapshot.val();
+});
+
+fb.weather.on('child_added', function(snapshot){
+  console.log(snapshot.val());
 });
 
 wundergroundKey = process.env.WUNDERGROUND_KEY;
@@ -38,11 +43,14 @@ exports.handle = function(request, response){
 var getWeather = function(start, end){
   console.log('start', start, 'end', end);
   for (var i = start; i < end; i++){
+    console.log(i);
+    console.log(cities[i]);
     var request = http.request({
       host: wundergroundUrl,
       path:  path + cities[i] + '.json',
       method: "GET"
     }, function(response){
+      console.log('received response');
       var weather = '';
       response.on('data', function(chunk){
         weather+=chunk;
@@ -84,7 +92,7 @@ var getWeather = function(start, end){
 getWeather(0, 4);
 //Updates every four hours to stay under limit
 setInterval(function(){
-  getWeather(0, 4);
+  getWeather(4, 8);
 }, 3600000 * 4);
 
 
