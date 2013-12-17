@@ -1,7 +1,7 @@
 var shadowfacts     = require('./api/shadowfacts.js');
 var array           = require('./api/array.js');
 var weather         = require('./api/weather.js');
-var mediocreCatPic  = require('./api/mediocreCatPic.js');
+var mediocreCatPic  = require('./api/mediocreCatPics.js');
 
 exports.handler = {
   '/shadowfacts'                 : shadowfacts.handle,
