@@ -38,8 +38,6 @@ exports.handle = function(request, response){
 var getWeather = function(start, end){
   console.log('start', start, 'end', end);
   for (var i = start; i < end; i++){
-    console.log(i);
-    console.log(cities[i]);
     var request = http.request({
       host: wundergroundUrl,
       path:  path + cities[i] + '.json',
@@ -67,26 +65,26 @@ var getWeather = function(start, end){
   }
   // To avoid going over my wunderground limit
   if (end < cities.length){
-    if (end + 5 < cities.length){
-      end = end + 5;
+    if (end + 4 < cities.length){
+      end = end + 4;
     } else {
       end = cities.length;
     }
-    start = start + 5;
+    start = start + 4;
     console.log('about to set a timeout for start = ', start, ' and end  = ', end);
     setTimeout(function(){
       getWeather(start, end);
     }, 3 * 60 * 1000);
   } else {
     start = 0;
-    end = 5;
+    end = 4;
   }
 };
 
-getWeather(0, 5);
+getWeather(0, 4);
 //Updates every four hours to stay under limit
 setInterval(function(){
-  getWeather(0, 5);
+  getWeather(0, 4);
 }, 3600000 * 4);
 
 
