@@ -1,12 +1,13 @@
 var shadowfacts     = require('./api/shadowfacts.js');
-var unsortmyarray   = require('./api/unsortmyarray.js');
+var array           = require('./api/array.js');
 var weather         = require('./api/weather.js');
 
 exports.handler = {
   '/shadowfacts'                 : shadowfacts.handle,
   '/shadowfax'                   : shadowfacts.handle,
   '/shadow'                      : shadowfacts.handle,
-  '/unsortmyarray'               : unsortmyarray.handle,
+  '/unsortmyarray'               : array.handle,
+  'mostlysort'                   : array.handle,
   '/antarcticweather'            : weather.handle,
   '/antarcticweather/all'        : weather.handle,
   '/antarcticweather/location'   : weather.handle

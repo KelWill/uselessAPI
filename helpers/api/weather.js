@@ -60,27 +60,26 @@ var getWeather = function(start, end){
   }
   // To avoid going over my wunderground limit
   if (end < cities.length){
-    if (end + 4 < cities.length){
-      end = end + 4;
+    if (end + 5 < cities.length){
+      end = end + 5;
     } else {
       end = cities.length;
     }
-    start = start + 4;
+    start = start + 5;
     // setTimeout(function(){
     //   getWeather(start, end);
     // }, 3 * 60000);
   } else {
     start = 0;
-    end = 4;
+    end = 5;
   }
 };
 
-getWeather(0, 3);
+getWeather(0, 5);
 
 //Updates every four hours to stay under limit
 setInterval(function(){
-  weatherInfo = {};
-  getWeather(0, 4);
+  getWeather(0, 5);
 }, 3600000 * 4);
 
 

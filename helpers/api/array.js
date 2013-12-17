@@ -120,19 +120,12 @@ unsortMethods.push(unsortArray3);
 
 
 exports.apiEntry = {
-  title: 'Arrays',
-  routes: [
-    {
-      url: '/unsortmyarray',
-      needsData: true,
-      shortDescription: "Enter a sorted array for fun and profit"
-    },
-    {
-      url: '/mostlysort',
-      needsData: true,
-      shortDescription: "Ehhh, it's close enough."
-    }
-  ],
+  title: 'Unsorted Arrays',
+  routes: [{
+    url: '/unsortmyarray',
+    needsData: true,
+    shortDescription: "Enter a sorted array for fun and profit"
+  }],
   description: 'Need to unsort an array? Simply make a request to /unsortmyarray ' +
   'and it will return an unsorted, but not randomized, array. Only arrays of numbers ' +
   'will be accepted.'
@@ -144,4 +137,4 @@ var mostlySort = function(array){
   } else {
     return unsortArray3(array.sort());
   }
-};
+}

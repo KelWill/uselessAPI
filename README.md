@@ -4,11 +4,11 @@ Useless API
 
 Useless API is a collection of endpoints that return useless information. Currently, the API can return information on weather in the Antarctic, facts about shadows, and if sent a sorted list, it can un-sort it.
 
-## Why?
+# Why?
 
-Useless API is a chance for people to make fun code. Have a silly idea? Issue a pull request! Great ideas will be non-trivial to implement, and will be encapsulated in a module that has a handle function that handles the requests and an apiEntry property that describes the endpoint. Check out all our awesomely irrelevant endpoints at [uselessAPI](//uselessapi.azurewebsites.net).
+Useless API is a chance for people to make fun code. Have a silly idea? Issue a pull request! Great ideas will be non-trivial to implement, and will be encapsulated in a module that has a handle function that handles the requests and an apiEntry property that describes the endpoint. Check out all our awesomely irrelevant endpoints at [uselessAPI](http://uselessapi.azurewebsites.net).
 
-## Syntax for apiEntry
+# Syntax for apiEntry
 See code in api folder for more examples.
 
     exports.module.apiEntry = {
@@ -18,11 +18,15 @@ See code in api folder for more examples.
           url: '/anewroute',
           shortDescription: 'click for exciting things!'
         },
-        { 
+        {
           url: '/urlsareaewsome',
         }
-     ],
-     [needDate: true,
-     paramKeys: ['name', 'anotherkey']]
-     description: 'This is a pretty sweet endpoint that you should totally click'
-  };
+      ],
+      [needDate: true,
+      paramKeys: ['name', 'anotherkey']]
+      description: 'This is a pretty sweet endpoint that you should totally click'
+    };
+
+# Tech Stack
+
+Node with Express on the back-end. Back-end has Request module as well, for easy AJAX requests from the server. Front end was written in Angular. 
