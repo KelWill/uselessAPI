@@ -15,7 +15,7 @@ exports.handle = function(request, response){
     }
   } else if (request.url === "/mostlysort"){
     if (checkArray(array)){
-      response.send(JSON.stringify(mostlysort(array)));
+      response.send(JSON.stringify(mostlySort(array)));
     }
   }
 };
