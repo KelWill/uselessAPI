@@ -22,15 +22,22 @@
           <p>{{api.description}}</p>
           <div>{{routes}}</div>
           <ul>
+            <!--    Displaying all routes in an API     -->
             <li ng-repeat = "route in api.routes" ng-controller = "api" class = "route">
+
+              <!-- If route requires data -->
               <input ng-show = "route.needsData"   ng-model = "data" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false" placeholder = "Data" class = "data"></input>
+
               <!-- To enter parameters -->
               <ul ng-show = "route.hasParams" ng-model = "$scope.params" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false">
                 <li ng-repeat = "key in $scope.params">
                   {{key}} = <input ng-model = "$scope.params[key]" placeholder = "parameter" class = "param"></input>
                 </li>
               </ul>
-              <br ng-show = "$scope.hasParams || route.needsData">
+
+              <br ng-show = "route.hasParams || route.needsData">
+
+              <!-- Route buttons! -->
               <button ng-click = "callApi(route.url)" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false" class = "btn btn-md btn-primary">
                 <span ng-hide = "route.shortDescription && $scope.showDesc">
                   {{route.url}}
@@ -39,6 +46,7 @@
                   {{route.shortDescription}}
                 </span>
               </button>
+
               <!-- Showing responses from a request -->
               <div ng-show = "response" class = "result">{{response}}</div>
             </li>
