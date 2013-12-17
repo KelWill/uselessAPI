@@ -89,10 +89,9 @@ var getWeather = function(start, end){
   }
 };
 
-getWeather(0, 4);
 //Updates every four hours to stay under limit
 setInterval(function(){
-  getWeather(4, 8);
+  getWeather(0, 4);
 }, 3600000 * 4);
 
 
