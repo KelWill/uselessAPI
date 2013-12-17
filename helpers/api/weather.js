@@ -1,5 +1,5 @@
 var http = require('http');
-var fb = require('../helpers/fb.js');
+var fb = require('../fb.js');
 
 var weatherInfo = {};
 fb.weather.on('value', function(snapshot){
