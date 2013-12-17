@@ -7,13 +7,16 @@ var path =  '/api/' + wundergroundKey + '/geolookup/conditions/q/Antarcica/';
 exports.handle = function(request, response){
   if (request.url === '/antarcticweather/all'){
     response.send(weatherInfo);
-  } else if (request.url === '/antarctic/location'){
+  } else if (request.url === '/antarcticweather/location'){
     var place = cities[~~(Math.random() * cities.length)];
     return place.replace(/_/g, ' ');
   } else {
     var keys = Object.keys(weatherInfo);
     var key = keys[~~(Math.random()*keys.length)];
     var data = weatherInfo[key];
+    data.temp = data.temp || "probably really cold";
+    data.wind = data.wind || "chilling";
+    data.conditions = data.conditions || "You probably wouldn't survive long here if you didn't have clothes";
     var result = "In " + key + " it is " + data.temp + ', the wind is ' + data.wind[0].toLowerCase() + data.wind.slice(1) +
       '. Additional info: ' + data.conditions[0].toLowerCase() + data.conditions.slice(1);
     response.send(result);
@@ -83,7 +86,7 @@ exports.apiEntry = {
       shortDescription: 'Gives weather for random location in string format.'
     },
     {
-      url: '/antarticweather/all',
+      url: '/antarcticweather/all',
       shortDescription: 'Gives weather for all locations we have information on in JSON format.'
     },
     {
