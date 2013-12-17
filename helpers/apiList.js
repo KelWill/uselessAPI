@@ -3,12 +3,12 @@ var unsortmyarray   = require('./api/unsortmyarray.js');
 var weather         = require('./api/weather.js');
 
 exports.handler = {
-  '/shadowfacts'          : shadowfacts.handle,
-  '/shadowfax'            : shadowfacts.handle,
-  '/shadow'               : shadowfacts.handle,
-  '/unsortmyarray'        : unsortmyarray.handle,
-  '/antarticweather'      : weather.handle,
-  '/antarcticweather/all' : weather.handle,
+  '/shadowfacts'                 : shadowfacts.handle,
+  '/shadowfax'                   : shadowfacts.handle,
+  '/shadow'                      : shadowfacts.handle,
+  '/unsortmyarray'               : unsortmyarray.handle,
+  '/antarticweather'             : weather.handle,
+  '/antarcticweather/all'        : weather.handle,
   '/antarcticweather/location'   : weather.handle
 };
 
