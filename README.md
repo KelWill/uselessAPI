@@ -6,7 +6,7 @@ Useless API is a collection of endpoints that return useless information. Curren
 
 ## Why?
 
-Useless API is a chance for people to make fun code. Have a silly idea? Issue a pull request! Great ideas will be non-trivial to implement, and will be encapsulated in a module that has a handle function that handles the requests and an apiEntry property that describes the endpoint. Check out all our awesomely irrelevant endpoints at [uselessAPI](uselessapi.azurewebsites.net).
+Useless API is a chance for people to make fun code. Have a silly idea? Issue a pull request! Great ideas will be non-trivial to implement, and will be encapsulated in a module that has a handle function that handles the requests and an apiEntry property that describes the endpoint. Check out all our awesomely irrelevant endpoints at [uselessAPI](/uselessapi.azurewebsites.net).
 
 ## Syntax for apiEntry
 See code in api folder for more examples.
