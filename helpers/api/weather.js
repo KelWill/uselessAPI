@@ -3,12 +3,7 @@ var fb = require('../fb.js');
 
 var weatherInfo = {};
 fb.weather.on('value', function(snapshot){
-  console.log(snapshot.val());
   weatherInfo = snapshot.val();
-});
-
-fb.weather.on('child_added', function(snapshot){
-  console.log(snapshot.val());
 });
 
 Array.prototype.random = function(){

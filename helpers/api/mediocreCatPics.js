@@ -4,14 +4,11 @@ var path = require('path');
 var numCats = 20;
 
 exports.handle = function(request, response){
+  console.log('request recevied');
   var num = ~~(Math.random() *  numCats);
-  var catPath = path.join(__dirname, '/images/cats/cat', num, '.jpg');
+  var catPath = path.join(__dirname, '../images/cats/cat' + num + '.jpg');
   console.log('catPath', catPath);
-  var stream = fs.createReadStream(catPath);
-  stream.pipe(response);
-  stream.on('end', function(){
-    response.end();
-  });
+  response.send('<img src = "' + catPath + '">');
 };
 
 exports.apiEntry = {

@@ -57,7 +57,7 @@ var mostlySort = function(array){
   if (array.length <=  2) return array;
   var index = ~~(Math.random() * array.length);
   var otherIndex;
-  if (array[index + 1]) {
+  if (array[index + 1] !== undefined) {
     otherIndex = index + 1;
   } else {
     otherIndex = index - 1;
