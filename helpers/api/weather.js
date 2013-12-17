@@ -37,9 +37,9 @@ var getWeather = function(start, end){
         weather+=chunk;
       });
       response.on('end', function(){
+        console.log(weather);
         if (weather){
           weather = JSON.parse(weather);
-          console.log(weather);
           if (weather.display_location){
             weatherInfo[weather.display_location.full] = {};
             var cityWeather = weatherInfo[weather.display_location.full];
