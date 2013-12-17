@@ -8,14 +8,14 @@ exports.handle = function(request, response){
   var array = request.body;
   if (request.url === "/unsortmyarray"){
     if (checkArray(array) && isAlreadySorted(array)){
-      response.send(unsortMethods[~~(Math.random() * unsortMethods.length)](array));
+      response.send(JSON.stringify(unsortMethods[~~(Math.random() * unsortMethods.length)](array)));
     } else {
       response.writeHead(400);
       response.end("Must send a sorted numerical array");
     }
   } else if (request.url === "/mostlysort"){
     if (checkArray(array)){
-      response.send(mostlysort(array));
+      response.send(JSON.stringify(mostlysort(array)));
     }
   }
 };

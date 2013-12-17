@@ -18,7 +18,8 @@
         <div>{{routes}}</div>
         <ul>
           <li ng-repeat = "route in api.routes" ng-controller = "api">
-            <button ng-click = "callApi(route.url)">Route: {{route.url}}</button>
+            <input ng-show = "route.needsData"   ng-model = "data"></input>
+            <button ng-click = "callApi(route.url)">Route: {{route.url}}</button><br>
             <span ng-show = "route.shortDescription"> {{route.shortDescription}}</span>
             <!-- To enter parameters -->
             <ul ng-show = "$scope.hasParams" ng-model = "$scope.params">
@@ -27,7 +28,6 @@
               </li>
             </ul>
             <!-- To enter data -->
-            <input ng-show = "route.needsData"   ng-model = "data"></input>
             <!-- Showing responses from a request -->
             <div ng-show = "response">{{response}}</div>
           </li>
