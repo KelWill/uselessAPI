@@ -11,6 +11,10 @@ fb.weather.on('child_added', function(snapshot){
   console.log(snapshot.val());
 });
 
+Array.prototype.random = function(){
+  return this[~~(this.length * Math.random())];
+};
+
 wundergroundKey = process.env.WUNDERGROUND_KEY;
 
 var wundergroundUrl = "api.wunderground.com";
@@ -23,6 +27,8 @@ exports.handle = function(request, response){
   } else if (request.url === '/antarcticweather/location'){
     var place = cities[~~(Math.random() * cities.length)];
     response.send(place.replace(/_/g, ' '));
+  } else if (request.url === '/antarcticweather/funfact'){
+    response.send(coolFacts.random());
   } else {
     var keys = Object.keys(weatherInfo);
     var key = keys[~~(Math.random()*keys.length)];
@@ -32,7 +38,7 @@ exports.handle = function(request, response){
       data.wind = winds[~~(Math.random() * winds.length)];
     }
     if (!data.conditions){
-      data.conditions = coolFacts[~~(Math.random()*coolFacts.length)];
+      data.conditions = "none";
     }
     var result = "In " + key + " it is " + data.temp + ', the wind is ' + data.wind[0].toLowerCase() + data.wind.slice(1) +
       '. Additional info: ' + data.conditions[0].toLowerCase() + data.conditions.slice(1);
@@ -43,8 +49,6 @@ exports.handle = function(request, response){
 var getWeather = function(start, end){
   console.log('start', start, 'end', end);
   for (var i = start; i < end; i++){
-    console.log(i);
-    console.log(cities[i]);
     var request = http.request({
       host: wundergroundUrl,
       path:  path + cities[i] + '.json',
@@ -64,7 +68,6 @@ var getWeather = function(start, end){
             cityWeather.conditions = weather.current_observation.weather;
             cityWeather.wind = weather.current_observation.wind_string;
             fb.weather.child(weather.current_observation.display_location.full).set(cityWeather);
-            console.log(cityWeather);
           }
         }
       });
@@ -114,7 +117,7 @@ exports.apiEntry = {
   description: 'Curious about weather in Antarctica? So were we!'
 };
 
-var coolFacts = ["If you're naked, this isn't a good place for you.",
+var coolFacts = ["If you're naked, Antarctica isn't a good place for you.",
   "Good news! You don't have to worry about polar bears!",
   "There are no land mammals in Antarcica.",
   "The only thing you have to fear is fear itself.",
