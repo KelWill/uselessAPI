@@ -37,6 +37,8 @@ exports.handle = function(request, response){
 var getWeather = function(start, end){
   console.log('start', start, 'end', end);
   for (var i = start; i < end; i++){
+    console.log(i);
+    console.log(cities[i]);
     var request = http.request({
       host: wundergroundUrl,
       path:  path + cities[i] + '.json',
@@ -72,7 +74,7 @@ var getWeather = function(start, end){
     console.log('about to set a timeout for start = ', start, ' and end  = ', end);
     setTimeout(function(){
       getWeather(start, end);
-    }, 3 * 60000);
+    }, 3 * 60 * 1000);
   } else {
     start = 0;
     end = 5;
