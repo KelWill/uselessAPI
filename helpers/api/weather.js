@@ -62,6 +62,7 @@ var getWeather = function(start, end){
       response.on('end', function(){
         if (weather){
           weather = JSON.parse(weather);
+          console.log(weather.current_observation);
           if (weather.current_observation && weather.current_observation.display_location){
             var cityWeather = {};
             cityWeather.temp = weather.current_observation.temperature_string;
