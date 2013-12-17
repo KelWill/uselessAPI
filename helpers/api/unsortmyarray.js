@@ -23,6 +23,7 @@ var checkArray = function(body){
 };
 
 //  Making sure array is already sorted (descending or ascending order works)
+//  Could refactor to use native sort function for clarity
 var isAlreadySorted = function(array){
   var ascending;
   if (!array.length) return array;
@@ -58,7 +59,7 @@ var isAlreadySorted = function(array){
       }
     }
   }
-  return true
+  return true;
 };
 
 //   Contains all the different methods you can use to unsort an array
