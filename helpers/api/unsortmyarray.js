@@ -75,7 +75,10 @@ var unsortArray1 = function(array){
     array[i] = array[i + 1];
     array[i + 1] = temp;
   }
-  return array;
+  if (array.length === 3){
+    return array;
+  }
+  return unsortArray2(array);
 };
 var unsortArray2 = function(array){
   if (array.length < 2){
