@@ -68,9 +68,9 @@ var getWeather = function(start, end){
       end = cities.length;
     }
     start = start + 5;
-    // setTimeout(function(){
-    //   getWeather(start, end);
-    // }, 3 * 60000);
+    setTimeout(function(){
+      getWeather(start, end);
+    }, 3 * 60000);
   } else {
     start = 0;
     end = 5;
