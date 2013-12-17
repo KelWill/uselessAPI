@@ -58,7 +58,7 @@ var isAlreadySorted = function(array){
       }
     }
   }
-  return unsortArray(array);
+  return true
 };
 
 //   Contains all the different methods you can use to unsort an array

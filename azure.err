@@ -1,0 +1,13 @@
+Mon Dec 16 2013 17:15:32 GMT-0800 (PST):
+[Error: No publish settings file found. Please use "azure account import" first]
+Error: No publish settings file found. Please use "azure account import" first
+    at AccountClient.__.extend.getSubscriptions (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/lib/commands/core/subscriptionclient.js:90:13)
+    at AzureCli.<anonymous> (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/lib/commands/account._js:59:39)
+    at AzureCli.<anonymous> (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/lib/cli.js:175:12)
+    at AzureCli.<anonymous> (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/node_modules/commander/lib/commander.js:235:8)
+    at AzureCli.EventEmitter.emit (events.js:98:17)
+    at AzureCli.Command.parseArgs (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/node_modules/commander/lib/commander.js:405:12)
+    at AzureCli.Command.parse (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/node_modules/commander/lib/commander.js:351:15)
+    at AzureCli.<anonymous> (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/lib/cli.js:500:38)
+    at AzureCli.EventEmitter.emit (events.js:95:17)
+    at AzureCli.Command.parseArgs (/Users/hackreactor/.nvm/v0.10.13/lib/node_modules/azure-cli/node_modules/commander/lib/commander.js:407:12)
