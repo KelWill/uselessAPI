@@ -18,7 +18,9 @@ exports.handle = function(request, response){
     var key = keys[~~(Math.random()*keys.length)];
     var data = weatherInfo[key];
     data.temp = data.temp || "probably really cold";
-    data.wind = data.wind || "chilling";
+    if (!data.wind){
+      data.wind = winds[~~(Math.random() * winds.length)];
+    }
     if (!data.conditions){
       data.conditions = coolFacts[~~(Math.random()*coolFacts.length)];
     }
@@ -139,6 +141,6 @@ var coolFacts = ["If you're naked, this isn't a good place for you.",
    "Six species of baleen whales and six species of toothed whales and dolphins are found in Antarctic waters. They include the blue, fin, southern right whale, sei whale, minke, and humpback; the sperm whale, killer whale, hourglass dolphin, fourtooth whale, rightwhale dolphin and the southern bottlenose whale.", 
    "Penguins are the group of Antarctic birds that everyone thinks of first, but there are actually more petrels than there are penguins! Petrels include albatrosses, fulmars, prions, shearwaters, storm petrels, diving petrels and Gadfly petrels. Petrels are found in all the world's oceans, but there are more in Antarctic waters than anywhere else.", 
    "Other birds that live in or breed in Antarctica include cormorants, gulls, skuas and terns and land birds including sheathbills and pintail ducks."
-  ];
+];
 
-
+var winds = ["chilling", "bringing the cries of the leopard seals", "terrifying", "way too strong", "chilling your naked skin. Why don't you have clothes on?"];
