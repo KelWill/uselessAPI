@@ -67,8 +67,15 @@ var app = angular.module('useless', [])
     var params = $scope.params;
 
     getApiList.call(url, method, data, params).then(function(responseData){
-      $scope.response = responseData;
-      console.log(responseData);
+      if (responseData){
+        $scope.response = responseData;
+      } else {
+        if (data){
+          $scope.response = "Something went wrong! Was your data properly formatted?";
+        } else {
+          $scope.response = "Well...we did say it was useless... Something went wrong";
+        }
+      }
     });
   };
 }).controller('main', function($rootScope, $scope){

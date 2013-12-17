@@ -30,7 +30,7 @@ var isAlreadySorted = function(array){
   var ascending;
   if (!array.length) return array;
   if (typeof array[0] !== "number" || typeof array[1] !== "number") return false;
-  if (array.length < 2) return array;
+  if (array.length <= 2) return false;
 
   var i = 0;
   if (array[i] < array[i + 1])    ascending = true;
@@ -124,5 +124,5 @@ exports.apiEntry = {
       shortDescription: "Ehhh, it's close enough."
     }
   ],
-  description: 'Need to unsort an array, but don\'t want it to? Want to get an array mostly sorted? Look no further!'
+  description: 'Need to unsort an array, but don\'t want it to be random? Want to get an array mostly sorted? Look no further!'
 };

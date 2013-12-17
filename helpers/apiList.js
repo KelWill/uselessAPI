@@ -2,6 +2,7 @@ var shadowfacts     = require('./api/shadowfacts.js');
 var array           = require('./api/array.js');
 var weather         = require('./api/weather.js');
 var mediocreCatPic  = require('./api/mediocreCatPics.js');
+var advice          = require('./api/advice.js');
 
 exports.handler = {
   '/shadowfacts'                 : shadowfacts.handle,
@@ -13,13 +14,15 @@ exports.handler = {
   '/antarcticweather/all'        : weather.handle,
   '/antarcticweather/location'   : weather.handle,
   '/antarcticweather/funfact'    : weather.handle,
-  '/mediocrecatpic'              : mediocreCatPic.handle
+  '/mediocrecatpic'              : mediocreCatPic.handle,
+  '/shouldItakeAshot'            : advice.handle,
+  '/amIoutside'                  : advice.handle,
+  '/almostRandomCoinToss'        : advice.handle
 };
 
 exports.list = {
   'shadowFacts'     : shadowfacts.apiEntry,
   'unsortmyarray'   : array.apiEntry,
-  'antarcticWeather': weather.apiEntry,
-  'mediocreCatPic'  : mediocreCatPic.apiEntry
+  'antarcticWeather': weather.apiEntry
 };
 
