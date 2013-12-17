@@ -44,11 +44,11 @@ var getWeather = function(start, end){
         if (weather){
           weather = JSON.parse(weather);
           if (weather.current_observation && weather.current_observation.display_location){
-            var cityWeather = weatherInfo[weather.current_observation.display_location.full];
+            var cityWeather = {};
             cityWeather.temp = weather.current_observation.temperature_string;
             cityWeather.conditions = weather.current_observation.weather;
             cityWeather.wind = weather.current_observation.wind_string;
-            weatherInfo[weather.display_location.full] = cityWeather;
+            weatherInfo[weather.current_observation.display_location.full] = cityWeather;
             console.log('weatherInfo', weatherInfo);
             console.log('cityWeather', cityWeather);
           }
