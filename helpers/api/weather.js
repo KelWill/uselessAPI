@@ -38,6 +38,9 @@ var getWeather = function(start, end){
         weather+=chunk;
       });
       response.on('end', function(){
+        console.log(weather);
+        console.log(typeof weather);
+        console.log(response.body);
         if (weather){
           weather = JSON.parse(weather);
           if (weather.display_location){
