@@ -5,11 +5,12 @@ wundergroundKey = process.env.WUNDERGROUND_KEY;
 var wundergroundUrl = "api.wunderground.com";
 var path =  '/api/' + wundergroundKey + '/geolookup/conditions/q/Antarcica/';
 exports.handle = function(request, response){
+  console.log(weatherInfo);
   if (request.url === '/antarcticweather/all'){
     response.send(weatherInfo);
   } else if (request.url === '/antarcticweather/location'){
     var place = cities[~~(Math.random() * cities.length)];
-    return place.replace(/_/g, ' ');
+    response.send(place.replace(/_/g, ' '));
   } else {
     var keys = Object.keys(weatherInfo);
     var key = keys[~~(Math.random()*keys.length)];

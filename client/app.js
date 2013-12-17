@@ -27,8 +27,6 @@ var app = angular.module('useless', [])
     if (data){
       data = JSON.stringify(data);
     }
-    console.log('data', data);
-    console.log(typeof data);
 
     $http({
       method: method,
@@ -70,6 +68,7 @@ var app = angular.module('useless', [])
 
     getApiList.call(url, method, data, params).then(function(responseData){
       $scope.response = responseData;
+      console.log(responseData);
     });
   };
 }).controller('main', function($rootScope, $scope){
