@@ -46,7 +46,8 @@ var getWeather = function(start, end){
             cityWeather.conditions = weather.current_observation.weather;
             cityWeather.wind = weather.current_observation.wind_string;
             weatherInfo[weather.display_location.full] = cityWeather;
-            console.log(weatherInfo);
+            console.log('weatherInfo', weatherInfo);
+            console.log('cityWeather', cityWeather);
           }
         }
       });
