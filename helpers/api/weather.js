@@ -34,6 +34,7 @@ exports.handle = function(request, response){
     response.send(result);
   }
 };
+
 var getWeather = function(start, end){
   console.log('start', start, 'end', end);
   for (var i = start; i < end; i++){
@@ -57,6 +58,7 @@ var getWeather = function(start, end){
             cityWeather.conditions = weather.current_observation.weather;
             cityWeather.wind = weather.current_observation.wind_string;
             fb.weather.child(weather.current_observation.display_location.full).set(cityWeather);
+            console.log(cityWeather);
           }
         }
       });
