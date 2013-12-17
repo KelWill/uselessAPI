@@ -26,9 +26,8 @@ exports.apiEntry = {
   routes: [
     {
       url: '/shadowfacts',
-      shortDescription: 'Click for facts about shadows'
+      shortDescription: 'Click me!'
     }
   ],
-  description: 'Need facts about shadows? ShadowFacts has got you covered. ' +
-  'Requests to /shadowfacts will be returned a fact about shadows in string format.'
+  description: 'Need facts about shadows? Who doesn\'t?'
 };

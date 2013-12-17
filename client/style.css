@@ -43,6 +43,11 @@ ul {
   padding: 0;
 }
 
+.header {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
 @media (max-width: 600px){
   button.btn {
     width: 100%

@@ -96,8 +96,7 @@ exports.apiEntry = {
       shortDescription: 'Random location!'
     }
   ],
-  description: 'Provides weather information for random locations in Antarctica. Weather information is updated hourly, ' +
-  'but for some locations, weather information provided is only an estimate.'
+  description: 'Curious about weather in Antarctica? So were we!'
 };
 
 var coolFacts = ["If you're naked, this isn't a good place for you.",
