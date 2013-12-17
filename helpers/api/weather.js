@@ -106,15 +106,15 @@ exports.apiEntry = {
       shortDescription: 'Weather in string!'
     },
     {
-      url: '/antarcticweather/all',
-      shortDescription: 'JSON for everywhere'
-    },
-    {
       url: '/antarcticweather/location',
       shortDescription: 'Random location!'
+    },
+    {
+      url: '/antarcticweather/funfact',
+      shortDescription: 'Crucial knowledge'
     }
   ],
-  description: 'Curious about weather in Antarctica? So were we!'
+  description: 'Curious about weather in Antarctica? So were we! If you need more Antarctic weather information in JSON format, do a get request to "antarcticweather/all".'
 };
 
 var coolFacts = ["If you're naked, Antarctica isn't a good place for you.",
@@ -150,9 +150,9 @@ var coolFacts = ["If you're naked, Antarctica isn't a good place for you.",
   "There are many different species of penguins in Antarctica, including the huge and colorful emperor penguin, the smaller Adelie, the gentoo, the chinstrap penguin, the rockhopper, the king, the macaroni and more. In all there are 21 species of penguin scattered throughout the southern hemisphere.", 
   "Penguins are great swimmers. They can swim so fast, if they're trying, for instance, to escape the jaws of a leopard seal, that they can shoot out of the water 7 feet into the air onto a safe ice floe.",
   "Seals in Antarctic waters include the Weddell seal, the Ross seal, the crabeater, and the leopard seal. On the Antarctic peninsula there are also elephant seals and fur seals. These southern seals are still recovering from the devastation wrought by the 19th century sealers.",
-   "Six species of baleen whales and six species of toothed whales and dolphins are found in Antarctic waters. They include the blue, fin, southern right whale, sei whale, minke, and humpback; the sperm whale, killer whale, hourglass dolphin, fourtooth whale, rightwhale dolphin and the southern bottlenose whale.", 
-   "Penguins are the group of Antarctic birds that everyone thinks of first, but there are actually more petrels than there are penguins! Petrels include albatrosses, fulmars, prions, shearwaters, storm petrels, diving petrels and Gadfly petrels. Petrels are found in all the world's oceans, but there are more in Antarctic waters than anywhere else.", 
-   "Other birds that live in or breed in Antarctica include cormorants, gulls, skuas and terns and land birds including sheathbills and pintail ducks."
+  "Six species of baleen whales and six species of toothed whales and dolphins are found in Antarctic waters. They include the blue, fin, southern right whale, sei whale, minke, and humpback; the sperm whale, killer whale, hourglass dolphin, fourtooth whale, rightwhale dolphin and the southern bottlenose whale.", 
+  "Penguins are the group of Antarctic birds that everyone thinks of first, but there are actually more petrels than there are penguins! Petrels include albatrosses, fulmars, prions, shearwaters, storm petrels, diving petrels and Gadfly petrels. Petrels are found in all the world's oceans, but there are more in Antarctic waters than anywhere else.", 
+  "Other birds that live in or breed in Antarctica include cormorants, gulls, skuas and terns and land birds including sheathbills and pintail ducks."
 ];
 
 var winds = ["chilling", "bringing the cries of the leopard seals", "terrifying", "way too strong", "chilling your naked skin. Why don't you have clothes on?"];

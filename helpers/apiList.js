@@ -10,7 +10,8 @@ exports.handler = {
   '/mostlysort'                  : array.handle,
   '/antarcticweather'            : weather.handle,
   '/antarcticweather/all'        : weather.handle,
-  '/antarcticweather/location'   : weather.handle
+  '/antarcticweather/location'   : weather.handle,
+  '/antarcticweather/funfact'    : weather.handle
 };
 
 exports.list = {
