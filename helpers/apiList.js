@@ -9,7 +9,7 @@ exports.handler = {
   '/unsortmyarray'        : unsortmyarray.handle,
   '/antarticweather'      : weather.handle,
   '/antarcticweather/all' : weather.handle,
-  '/antarctic/location'   : weather.handle
+  '/antarcticweather/location'   : weather.handle
 };
 
 exports.list = {
