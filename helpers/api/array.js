@@ -54,8 +54,18 @@ var isAlreadySorted = function(array){
 
 
 var mostlySort = function(array){
-  if (array.length % 2) return unsortArray2(array.sort());
-  else return unsortArray3(array.sort());
+  if (array.length <=  2) return array;
+  var index = ~~(Math.random() * array.length);
+  var otherIndex;
+  if (array[index + 1]) {
+    otherIndex = index + 1;
+  } else {
+    otherIndex = index - 1;
+  }
+  var temp = array[index];
+  array[index] = array[otherIndex];
+  array[otherIndex] = temp;
+  return array;
 };
 
 var unsortArray1 = function(array){
