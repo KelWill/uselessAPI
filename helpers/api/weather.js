@@ -53,7 +53,7 @@ var getWeather = function(start, end){
             cityWeather.wind = weather.current_observation.wind_string;
             weatherInfo[weather.current_observation.display_location.full] = cityWeather;
             console.log('weatherInfo', weatherInfo);
-            console.log('cityWeather', cityWeather);
+          console.log('cityWeather', cityWeather);
           }
         }
       });

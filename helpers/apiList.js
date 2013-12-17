@@ -15,7 +15,7 @@ exports.handler = {
 
 exports.list = {
   'shadowFacts': shadowfacts.apiEntry,
-  'unsortmyarray': unsortmyarray.apiEntry,
+  'unsortmyarray': array.apiEntry,
   'antarcticWeather': weather.apiEntry
 };
 
