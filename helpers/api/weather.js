@@ -41,9 +41,6 @@ var getWeather = function(start, end){
         weather+=chunk;
       });
       response.on('end', function(){
-        console.log(weather);
-        console.log(typeof weather);
-        console.log(response.body);
         if (weather){
           weather = JSON.parse(weather);
           if (weather.current_observation && weather.current_observation.display_location){
@@ -52,8 +49,6 @@ var getWeather = function(start, end){
             cityWeather.conditions = weather.current_observation.weather;
             cityWeather.wind = weather.current_observation.wind_string;
             weatherInfo[weather.current_observation.display_location.full] = cityWeather;
-            console.log('weatherInfo', weatherInfo);
-          console.log('cityWeather', cityWeather);
           }
         }
       });

@@ -5,14 +5,14 @@ exports.handle = function(request, response){
     response.end();
   }
   var array = request.body;
-  if (request.url === "unsortmyarray"){
+  if (request.url === "/unsortmyarray"){
     if (checkArray(array) && isAlreadySorted(array)){
       response.send(unsortMethods[~~(Math.random() * unsortMethods.length)](array));
     } else {
       response.writeHead(400);
       response.end("Must send a sorted numerical array");
     }
-  } else if (request.url === "mostlysort"){
+  } else if (request.url === "/mostlysort"){
     if (checkArray(array)){
       response.send(mostlysort(array));
     }
@@ -133,9 +133,7 @@ exports.apiEntry = {
       shortDescription: "Ehhh, it's close enough."
     }
   ],
-  description: 'Need to unsort an array? Simply make a request to /unsortmyarray ' +
-  'and it will return an unsorted, but not randomized, array. Only arrays of numbers ' +
-  'will be accepted.'
+  description: 'Need to unsort an array? Want to get an array mostly sorted? Look no further!'
 };
 
 var mostlySort = function(array){
