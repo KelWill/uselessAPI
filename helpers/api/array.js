@@ -4,15 +4,16 @@ exports.handle = function(request, response){
     response.writeHead(400);
     response.end();
   }
+  console.log(request.url);
   var array = request.body;
-  if (request.url === "unsortmyarray"){
+  if (request.url === "/unsortmyarray"){
     if (checkArray(array) && isAlreadySorted(array)){
       response.send(unsortMethods[~~(Math.random() * unsortMethods.length)](array));
     } else {
       response.writeHead(400);
       response.end("Must send a sorted numerical array");
     }
-  } else if (request.url === "mostlysort"){
+  } else if (request.url === "/mostlysort"){
     if (checkArray(array)){
       response.send(mostlysort(array));
     }
@@ -69,7 +70,14 @@ var isAlreadySorted = function(array){
 };
 
 //   Contains all the different methods you can use to unsort an array
-var unsortMethods = [];
+
+var mostlySort = function(array){
+  if (array.length % 2){
+    return unsortArray2(array.sort());
+  } else {
+    return unsortArray3(array.sort());
+  }
+};
 
 var unsortArray1 = function(array){
   if (array.length < 2){
@@ -114,27 +122,25 @@ var unsortArray3 = function(array){
   return secondHalf.concat(firstHalf);
 };
 
+var unsortMethods = [];
 unsortMethods.push(unsortArray1);
 unsortMethods.push(unsortArray2);
 unsortMethods.push(unsortArray3);
 
 
 exports.apiEntry = {
-  title: 'Unsorted Arrays',
-  routes: [{
-    url: '/unsortmyarray',
-    needsData: true,
-    shortDescription: "Enter a sorted array for fun and profit"
-  }],
-  description: 'Need to unsort an array? Simply make a request to /unsortmyarray ' +
-  'and it will return an unsorted, but not randomized, array. Only arrays of numbers ' +
-  'will be accepted.'
+  title: 'Arrays',
+  routes: [
+    {
+      url: '/unsortmyarray',
+      needsData: true,
+      shortDescription: "Enter a sorted array for fun and profit"
+    },
+    {
+      url: '/mostlysort',
+      needsData: true,
+      shortDescription: "Ehhh, it's close enough."
+    }
+  ],
+  description: 'Need to unsort an array? Want to get an array mostly sorted? Look no further!'
 };
-
-var mostlySort = function(array){
-  if (array.length % 2){
-    return unsortArray2(array.sort());
-  } else {
-    return unsortArray3(array.sort());
-  }
-}

@@ -7,7 +7,7 @@ exports.handler = {
   '/shadowfax'                   : shadowfacts.handle,
   '/shadow'                      : shadowfacts.handle,
   '/unsortmyarray'               : array.handle,
-  'mostlysort'                   : array.handle,
+  '/mostlysort'                  : array.handle,
   '/antarcticweather'            : weather.handle,
   '/antarcticweather/all'        : weather.handle,
   '/antarcticweather/location'   : weather.handle
