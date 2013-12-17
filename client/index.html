@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app = "useless">
+<head>
+  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+  <script src = "/app.js"></script>
+  <link rel = "stylesheet" href = "/style.css"></link>
+</head>
+
+<body ng-controller = "main">
+  <h2 class = "header">Useless APIs</h2>
+  <h4 class = "italic">Guaranteed not to make your life easier</h4>
+  <div ng-controller = "apiList">
+    <!-- Goes through apilist and shows description -->
+    <ul>
+      <li ng-repeat = "api in list">
+        <h4>{{api.title}}</h4>
+        <p>{{api.description}}</p>
+        <div>{{routes}}</div>
+        <ul>
+          <li ng-repeat = "route in api.routes" ng-controller = "api">
+            <button ng-click = "callApi(route.url)">Route: {{route.url}}</button>
+            <span ng-show = "route.shortDescription"> {{route.shortDescription}}</span>
+            <!-- To enter parameters -->
+            <ul ng-show = "$scope.hasParams" ng-model = "$scope.params">
+              <li ng-repeat = "key in $scope.params">
+                {{key}} = <input ng-model = "$scope.params[key]"></input>
+              </li>
+            </ul>
+            <!-- To enter data -->
+            <input ng-show = "route.needsData"   ng-model = "data"></input>
+            <!-- Showing responses from a request -->
+            <div ng-show = "response">{{response}}</div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

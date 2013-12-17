@@ -1,8 +1,17 @@
 //TODO: refactor to choose a random unsorting algorithm and unsort it in different ways each time
 exports.handle = function(request, response){
-  if (!request.body && checkArray(response.body)){
+  if (!request.body){
     response.writeHead(400);
     response.end();
+  }
+  console.log("request.body", request.body);
+  var result = checkArray(request.body);
+  console.log(result);
+  if (!result){
+    response.writeHead(400);
+    response.end();
+  } else {
+    response.send(result);
   }
 };
 
@@ -21,9 +30,9 @@ var checkArray = function(body){
 //  Making sure array is already sorted (descending or ascending order works)
 var isAlreadySorted = function(array){
   var ascending;
-  if (!array.length) return true;
+  if (!array.length) return array;
   if (typeof array[0] !== "number" || typeof array[1] !== "number") return false;
-  if (array.length < 2) return true;
+  if (array.length < 2) return array;
 
   var i = 0;
   if (array[i] < array[i + 1]){
@@ -54,7 +63,7 @@ var isAlreadySorted = function(array){
       }
     }
   }
-  return true;
+  return unsortArray(array);
 };
 
 var unsortArray = function(array){
@@ -72,7 +81,11 @@ var unsortArray = function(array){
 
 exports.apiEntry = {
   title: 'Unsorted Arrays',
-  routes: ['/unsortmyarray'],
+  routes: [{
+    url: '/unsortmyarray',
+    needsData: true,
+    shortDescription: "Enter a sorted array for fun and profit"
+  }],
   description: 'Need to unsort an array? Simply make a request to /unsortmyarray ' +
   'and it will return an unsorted, but not randomized, array. Only arrays of numbers ' +
   'will be accepted.'

@@ -18,12 +18,17 @@ var facts = [
 
 
 exports.handle = function(request, response){
-  response.send(facts[~~(Math.random*facts.length)]);
+  response.send(facts[~~(Math.random() * facts.length)]);
 };
 
 exports.apiEntry = {
   title: 'Shadow Facts',
-  routes: ['/shadowfacts'],
+  routes: [
+    {
+      url: '/shadowfacts',
+      shortDescription: 'Click for facts about shadows'
+    }
+  ],
   description: 'Need facts about shadows? ShadowFacts has got you covered. ' +
   'Requests to /shadowfacts will be returned a fact about shadows in string format.'
 };

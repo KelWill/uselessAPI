@@ -6,14 +6,13 @@ var port = process.env.PORT || 3000;
 
 var app = express();
 app.use(express.bodyParser());
-// app.use(express.static(__dirname + 'client'));
+app.use(express.static(__dirname + '/client'));
 
 // A simple logger
 app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);
   next();
 });
-
 
 //     Routes        //
 app.get('/', function(request, response){
@@ -22,5 +21,6 @@ app.get('/', function(request, response){
 
 app.get('/apilist', routes.list);
 app.get("*", routes.api);
+app.post('*', routes.api);
 
 app.listen(port);
