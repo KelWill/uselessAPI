@@ -1,10 +1,8 @@
-//TODO: refactor to choose a random unsorting algorithm and unsort it in different ways each time
 exports.handle = function(request, response){
   if (!request.body){
     response.writeHead(400);
     response.end();
   }
-  console.log(request.url);
   var array = request.body;
   if (request.url === "/unsortmyarray"){
     if (checkArray(array) && isAlreadySorted(array)){

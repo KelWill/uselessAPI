@@ -4,6 +4,8 @@
   <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
   <script src = "/app.js"></script>
   <link rel = "stylesheet" href = "/style.css"></link>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width" />
 </head>
 
 <body ng-controller = "main">
@@ -12,24 +14,24 @@
   <div ng-controller = "apiList">
     <!-- Goes through apilist and shows description -->
     <ul>
-      <li ng-repeat = "api in list">
+      <li class = "routes" ng-repeat = "api in list" class = "api">
         <h4>{{api.title}}</h4>
         <p>{{api.description}}</p>
         <div>{{routes}}</div>
         <ul>
-          <li ng-repeat = "route in api.routes" ng-controller = "api">
+          <li ng-repeat = "route in api.routes" ng-controller = "api" class = "route">
             <input ng-show = "route.needsData"   ng-model = "data"></input>
-            <button ng-click = "callApi(route.url)">Route: {{route.url}}</button><br>
-            <span ng-show = "route.shortDescription"> {{route.shortDescription}}</span>
             <!-- To enter parameters -->
-            <ul ng-show = "$scope.hasParams" ng-model = "$scope.params">
+            <ul ng-show = "route.hasParams" ng-model = "$scope.params">
               <li ng-repeat = "key in $scope.params">
                 {{key}} = <input ng-model = "$scope.params[key]"></input>
               </li>
             </ul>
-            <!-- To enter data -->
+            <br ng-show = "$scope.hasParams || route.needsData">
+            <button ng-click = "callApi(route.url)" class = "btn btn-md btn-primary">{{route.url}}</button><br>
+            <span ng-show = "route.shortDescription"> {{route.shortDescription}}</span>
             <!-- Showing responses from a request -->
-            <div ng-show = "response">{{response}}</div>
+            <div ng-show = "response" class = "result">{{response}}</div>
           </li>
         </ul>
       </li>

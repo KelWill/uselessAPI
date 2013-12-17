@@ -1,3 +1,37 @@
 .italic {
   font-style: italic;
 }
+
+.api {
+  width: 90%;
+  margin: auto;
+  height: 10%;
+
+  overflow: auto;
+}
+
+.result {
+  width: 70%;
+  margin: auto;
+}
+
+button {
+  min-width: 25em;
+}
+input {
+  width: 25em;
+}
+
+ul {
+  list-style: none;
+}
+
+
+@media(max-width: 600px) {
+  button: {
+    min-width: 15em;
+  }
+  input: {
+    width: 15em;
+  }
+}
