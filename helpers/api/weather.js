@@ -57,16 +57,16 @@ var getWeather = function(start, end){
       end = cities.length;
     }
     start = start + 4;
-    setTimeout(function(){
-      getWeather(start, end);
-    }, 3 * 60000);
+    // setTimeout(function(){
+    //   getWeather(start, end);
+    // }, 3 * 60000);
   } else {
     start = 0;
     end = 4;
   }
 };
 
-getWeather(0, 4);
+getWeather(0, 3);
 
 //Updates every four hours to stay under limit
 setInterval(function(){
