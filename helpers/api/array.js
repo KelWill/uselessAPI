@@ -140,5 +140,5 @@ exports.apiEntry = {
       shortDescription: "Ehhh, it's close enough."
     }
   ],
-  description: 'Need to unsort an array? Want to get an array mostly sorted? Look no further!'
+  description: 'Need to unsort an array, but don\'t want it to be random? Want to get an array mostly sorted? Look no further!'
 };

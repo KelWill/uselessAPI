@@ -85,15 +85,15 @@ exports.apiEntry = {
   routes: [
     {
       url: '/antarcticweather',
-      shortDescription: 'Gives weather for random location in string format.'
+      shortDescription: 'Weather in string!'
     },
     {
       url: '/antarcticweather/all',
-      shortDescription: 'Gives weather for all locations we have information on in JSON format.'
+      shortDescription: 'JSON for everywhere'
     },
     {
       url: '/antarcticweather/location',
-      shortDescription: 'Returns the name of a location in Antarctica. Wow your friends with your knowledge!'
+      shortDescription: 'Random location!'
     }
   ],
   description: 'Provides weather information for random locations in Antarctica. Weather information is updated hourly, ' +

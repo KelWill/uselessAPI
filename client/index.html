@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html ng-app = "useless">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
   <script src = "/app.js"></script>
   <link rel = "stylesheet" href = "/style.css"></link>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-  <meta name="viewport" content="width=device-width" />
 </head>
 
 <body ng-controller = "main">
-  <h2 class = "header">Useless APIs</h2>
-  <h4 class = "italic">Guaranteed not to make your life easier</h4>
+  <div class = "header text-center">
+    <h2>Useless APIs</h2>
+    <h4 class = "italic">Guaranteed not to make your life easier</h4>
+  </div>
   <div ng-controller = "apiList">
     <!-- Goes through apilist and shows description -->
     <ul>
-      <li class = "routes" ng-repeat = "api in list" class = "api">
-        <h4>{{api.title}}</h4>
-        <p>{{api.description}}</p>
-        <div>{{routes}}</div>
-        <ul>
-          <li ng-repeat = "route in api.routes" ng-controller = "api" class = "route">
-            <input ng-show = "route.needsData"   ng-model = "data"></input>
-            <!-- To enter parameters -->
-            <ul ng-show = "route.hasParams" ng-model = "$scope.params">
-              <li ng-repeat = "key in $scope.params">
-                {{key}} = <input ng-model = "$scope.params[key]"></input>
-              </li>
-            </ul>
-            <br ng-show = "$scope.hasParams || route.needsData">
-            <button ng-click = "callApi(route.url)" class = "btn btn-md btn-primary">{{route.url}}</button><br>
-            <span ng-show = "route.shortDescription"> {{route.shortDescription}}</span>
-            <!-- Showing responses from a request -->
-            <div ng-show = "response" class = "result">{{response}}</div>
-          </li>
-        </ul>
+      <li ng-repeat = "api in list" class = "routes api">
+        <div class = "insideRoutes">
+          <h4>{{api.title}}</h4>
+          <p>{{api.description}}</p>
+          <div>{{routes}}</div>
+          <ul>
+            <li ng-repeat = "route in api.routes" ng-controller = "api" class = "route">
+              <input ng-show = "route.needsData"   ng-model = "data" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false" placeholder = "Data" class = "data"></input>
+              <!-- To enter parameters -->
+              <ul ng-show = "route.hasParams" ng-model = "$scope.params" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false">
+                <li ng-repeat = "key in $scope.params">
+                  {{key}} = <input ng-model = "$scope.params[key]" placeholder = "parameter" class = "param"></input>
+                </li>
+              </ul>
+              <br ng-show = "$scope.hasParams || route.needsData">
+              <button ng-click = "callApi(route.url)" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false" class = "btn btn-md btn-primary">
+                <span ng-hide = "route.shortDescription && $scope.showDesc">
+                  {{route.url}}
+                </span>
+                <span ng-show = "route.shortDescription && $scope.showDesc">
+                  {{route.shortDescription}}
+                </span>
+              </button>
+              <!-- Showing responses from a request -->
+              <div ng-show = "response" class = "result">{{response}}</div>
+            </li>
+          </ul>
+        </div>
       </li>
     </ul>
   </div>

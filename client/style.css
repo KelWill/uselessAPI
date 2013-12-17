@@ -1,37 +1,57 @@
+body {
+  font-family: 'futura' helvetica sans-serif;
+  /*padding: 0 10% 50px;*/
+}
+
 .italic {
   font-style: italic;
 }
 
 .api {
+  padding-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: 1px solid black;
+}
+
+.insideRoutes {
   width: 90%;
   margin: auto;
-  height: 10%;
-
-  overflow: auto;
 }
 
 .result {
-  width: 70%;
-  margin: auto;
+  margin: 0 5%;
+  font-style: italic;
+  font-size: 1.2em;
+  /*background: lightgray;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; */
 }
 
 button {
-  min-width: 25em;
+  width: 100%;
 }
+
 input {
-  width: 25em;
+  width: 100%;
 }
 
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-
-@media(max-width: 600px) {
-  button: {
-    min-width: 15em;
+@media (max-width: 600px){
+  button.btn {
+    width: 100%
   }
-  input: {
-    width: 15em;
+  .api {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .route input {
+    width: 100%;
   }
 }
