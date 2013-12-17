@@ -38,15 +38,14 @@ var getWeather = function(start, end){
         weather+=chunk;
       });
       response.on('end', function(){
-        console.log(weather);
         if (weather){
           weather = JSON.parse(weather);
           if (weather.display_location){
-            weatherInfo[weather.display_location.full] = {};
             var cityWeather = weatherInfo[weather.display_location.full];
             cityWeather.temp = weather.current_observation.temperature_string;
             cityWeather.conditions = weather.current_observation.weather;
             cityWeather.wind = weather.current_observation.wind_string;
+            weatherInfo[weather.display_location.full] = cityWeather;
           }
         }
       });
