@@ -60,14 +60,14 @@ var app = angular.module('useless', [])
 }).controller('api', function($scope, getApiList){
   $scope.callApi = function(url){
     var method = $scope.method || "GET";
-    var data = JSON.parse($scope.data);
-    var params = $scope.params;
-
-    // If sending method, default method is POST
+    var data = $scope.data;
     if (data){
+      data = JSON.parse(data);
+      // If sending data, default method is POST
       method = "POST";
     }
-    console.log('callApi was called successfully with', arguments);
+    var params = $scope.params;
+
     getApiList.call(url, method, data, params).then(function(responseData){
       $scope.response = responseData;
     });

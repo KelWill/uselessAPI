@@ -4,22 +4,17 @@ exports.handle = function(request, response){
     response.writeHead(400);
     response.end();
   }
-  console.log("request.body", request.body);
-  var result = checkArray(request.body);
-  console.log(result);
-  if (!result){
-    response.writeHead(400);
-    response.end();
+  var array = request.body;
+  if (checkArray(array) && isAlreadySorted(array)){
+    response.send(unsortMethods[~~(Math.random() * unsortMethods.length)](array));
   } else {
-    response.send(result);
+    response.writeHead(400);
+    response.end("Must send a sorted numerical array");
   }
 };
 
 //  Type Checking
 var checkArray = function(body){
-  if (typeof body === "string"){
-    body = JSON.parse(body);
-  }
   if (!(Array.isArray(body))){
     return false;
   } else {
@@ -66,7 +61,10 @@ var isAlreadySorted = function(array){
   return unsortArray(array);
 };
 
-var unsortArray = function(array){
+//   Contains all the different methods you can use to unsort an array
+var unsortMethods = [];
+
+var unsortArray1 = function(array){
   if (array.length < 2){
     return array;
   }
@@ -78,6 +76,37 @@ var unsortArray = function(array){
   }
   return array;
 };
+var unsortArray2 = function(array){
+  if (array.length < 2){
+    return array;
+  }
+  var index1 = ~~(Math.random() * array.length);
+  var index2 = ~~(Math.random() * array.length);
+  //In case returns the same number
+  while (index1 === index2){
+    index2 = ~~(Math.random() * array.length);
+  }
+  var temp = array[index1];
+  array[index1] = array[index2];
+  array[index2] = temp;
+  return array;
+};
+
+var unsortArray3 = function(array){
+  if (array.length < 2){
+    return array;
+  }
+  var i = ~~(Math.random() * array.length);
+  var firstHalf = array.slice(0, i);
+  var secondHalf = array.slice(i, array.length);
+
+  return secondHalf.concat(firstHalf);
+};
+
+unsortMethods.push(unsortArray1);
+unsortMethods.push(unsortArray2);
+unsortMethods.push(unsortArray3);
+
 
 exports.apiEntry = {
   title: 'Unsorted Arrays',
