@@ -61,7 +61,7 @@ var app = angular.module('useless', [])
     var data = $scope.data || $scope.route.dataExample;
     //When getting values from inputs it's a string, and sometimes neeeds to be
     //parsed. The dataNeedsParsing attribute is set in the apiEntry part of the module
-    if (route.dataNeedsParsing){
+    if ($scope.route.dataNeedsParsing){
       data = JSON.parse(data);
       // If sending data, default method is POST
       method = "POST";
