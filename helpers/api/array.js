@@ -134,6 +134,7 @@ exports.apiEntry = {
     },
     {
       url: '/sixthElementOrKangaroo',
+      needsData: true,
       shortDescription: 'Because you need to know'
     }
   ],

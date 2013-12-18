@@ -40,6 +40,7 @@ exports.list = {
   'unsortmyarray'   : array.apiEntry,
   'antarcticWeather': weather.apiEntry,
   'dates'           : date.apiEntry,
-  'helloworld'      : helloworld.apiEntry
+  'helloworld'      : helloworld.apiEntry,
+  'advice'          : advice.apiEntry
 };
 
