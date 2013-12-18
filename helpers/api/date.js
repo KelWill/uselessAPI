@@ -22,7 +22,7 @@ exports.apiEntry = {
     },
     {
       url: '/onedayago',
-      shortDescription: 'Was yesterday'
+      shortDescription: 'Yesterday'
     }
   ],
   description: 'Need to know the current age of Macaulay Culkin in milliseconds? ' +

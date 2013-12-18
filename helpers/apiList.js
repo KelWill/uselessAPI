@@ -12,20 +12,26 @@ exports.handler = {
   '/shadowfacts'                 : shadowfacts.handle,
   '/shadowfax'                   : shadowfacts.handle,
   '/shadow'                      : shadowfacts.handle,
+
   '/unsortmyarray'               : array.handle,
   '/mostlysort'                  : array.handle,
   '/sixthelementorkangaroo'      : array.handle,
+
   '/antarcticweather'            : weather.handle,
   '/antarcticweather/all'        : weather.handle,
   '/antarcticweather/location'   : weather.handle,
   '/antarcticweather/funfact'    : weather.handle,
+
   '/mediocrecatpic'              : mediocreCatPic.handle,
-  '/shoulditakeashot'            : advice.handle,
+
   '/amioutside'                  : advice.handle,
   '/almostrandomcointoss'        : advice.handle,
+  '/alternatingcointoss'         : advice.handle,
+
   '/tomacaulayculkintime'        : date.handle,
   '/areweintheunixera'           : date.handle,
   '/onedayago'                   : date.handle,
+
   '/helloworld'                  : helloworld.handle
 };
 
