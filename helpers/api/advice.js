@@ -16,12 +16,12 @@ exports.apiEntry = {
       shortDescription: 'Even better than random!'
     },
     {
-      url: '/amioutside',
-      shortDescription: 'Know thy location'
-    },
-    {
       url: '/alternatingcointoss',
       shortDescription: 'It looks random!'
+    },
+    {
+      url: '/amioutside',
+      shortDescription: 'Know thy location'
     }
   ],
   description: 'Don\'t have a coin? One of our endpoints will definitely help. ' +
