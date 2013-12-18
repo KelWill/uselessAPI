@@ -9,7 +9,7 @@ exports.handle = function(request, response){
       response.send(JSON.stringify(dobIsPrime(dob)));
     } else {
       response.writeHead(400);
-      response.end("Let's try a date in the past.  Please use Arabic numerals next separated by '/' next time.  Like this: 'mm/dd/year'.");
+      response.end("Let's try a date in the past.  Please use Arabic numerals separated by '/' next time.  Like this: 'mm/dd/year'.");
     }
   }
 };
