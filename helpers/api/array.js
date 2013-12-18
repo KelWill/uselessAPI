@@ -57,6 +57,9 @@ var isAlreadySorted = function(array){
 
 var mostlySort = function(array){
   if (array.length <=  2) return array;
+  array = array.sort(function(a, b){
+    return (parseInt(a) - parseInt(b));
+  });
   var index = ~~(Math.random() * array.length);
   var otherIndex;
   if (array[index + 1] !== undefined) {
@@ -125,16 +128,19 @@ exports.apiEntry = {
     {
       url: '/unsortmyarray',
       needsData: true,
+      dataExample: JSON.stringify([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]),
       shortDescription: "Enter a sorted array for fun and profit"
     },
     {
       url: '/mostlysort',
       needsData: true,
+      dataExample: JSON.stringify([1, 6, 3, 2, 24, 9, 12, 87, 4, 5]),
       shortDescription: "Ehhh, it's close enough."
     },
     {
-      url: '/sixthElementOrKangaroo',
+      url: '/sixthelementorkangaroo',
       needsData: true,
+      dataExample: JSON.stringify([1, 2, 3, 4]),
       shortDescription: 'Because you need to know'
     }
   ],

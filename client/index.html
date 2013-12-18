@@ -26,7 +26,7 @@
             <li ng-repeat = "route in api.routes" ng-controller = "api" class = "route">
 
               <!-- If route requires data -->
-              <input ng-show = "route.needsData"   ng-model = "data" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false" placeholder = "Data" class = "data"></input>
+              <input ng-show = "route.needsData" ng-model = "route.dataExample" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false" placeholder = "Data" class = "data"></input>
 
               <!-- To enter parameters -->
               <ul ng-show = "route.hasParams" ng-model = "$scope.params" ng-mouseenter="$scope.showDesc = true" ng-mouseleave = "$scope.showDesc = false">

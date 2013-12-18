@@ -2,9 +2,9 @@ var shadowfacts     = require('./api/shadowfacts.js');
 var array           = require('./api/array.js');
 var weather         = require('./api/weather.js');
 var mediocreCatPic  = require('./api/mediocreCatPics.js');
-var advice          = require('./api/advice.js');
 var date            = require('./api/date.js');
 var helloworld      = require('./api/helloworld.js');
+var advice          = require('./api/advice.js');
 
 console.log(date.js);
 

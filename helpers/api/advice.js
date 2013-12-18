@@ -20,7 +20,7 @@ exports.apiEntry = {
       shortDescription: 'Know thy location'
     },
     {
-      url: '/alternationcointoss',
+      url: '/alternatingcointoss',
       shortDescription: 'It looks random!'
     }
   ],
@@ -29,17 +29,17 @@ exports.apiEntry = {
 };
 
 var eightBall = [
-'Probably not',
-'Sources say no',
-'It\'s unlikely',
-'Chances are...probably not',
-'Ask again later, calculation inconclusive',
-'There\'s an 83% chance you\'re inside',
-'I\'d bet not'
+  'Probably not',
+  'Sources say no',
+  'It\'s unlikely',
+  'Chances are...probably not',
+  'Ask again later, calculation inconclusive',
+  'There\'s an 83% chance you\'re inside',
+  'I\'d bet not'
 ];
 
 var coin = 'H';
-var alternationCoinToss = function(){
+var alternatingCoinToss = function(){
   if (coin === 'H'){
     coin = 'T';
   } else {
@@ -48,7 +48,7 @@ var alternationCoinToss = function(){
   return coin;
 };
 
-// So that the chances change over time
+// Use date so that the chances change over time
 var almostRandomCoinToss = function(){
   var date = new Date();
   var day = date.getDate();

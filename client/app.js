@@ -58,7 +58,7 @@ var app = angular.module('useless', [])
 }).controller('api', function($scope, getApiList){
   $scope.callApi = function(url){
     var method = $scope.method || "GET";
-    var data = $scope.data;
+    var data = $scope.data || $scope.route.dataExample;
     if (data){
       data = JSON.parse(data);
       // If sending data, default method is POST
