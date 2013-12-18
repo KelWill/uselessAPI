@@ -15,6 +15,8 @@ exports.handle = function(request, response){
     if (checkArray(array)){
       response.send(JSON.stringify(mostlySort(array)));
     }
+  } else if (request.url === '/sixthelementorkangaroo'){
+    response.send(JSON.stringify(sixthElementOrKangaroo(array)));
   }
 };
 
@@ -109,6 +111,13 @@ unsortMethods.push(unsortArray1);
 unsortMethods.push(unsortArray2);
 unsortMethods.push(unsortArray3);
 
+var sixthElementOrKangaroo = function(array) {
+  if (typeof array[5] === 'undefined') {
+    return "kangaroo";
+  } else {
+    return array[5];
+  }
+};
 
 exports.apiEntry = {
   title: 'Arrays',
@@ -122,6 +131,10 @@ exports.apiEntry = {
       url: '/mostlysort',
       needsData: true,
       shortDescription: "Ehhh, it's close enough."
+    },
+    {
+      url: '/sixthElementOrKangaroo',
+      shortDescription: 'Because you need to know'
     }
   ],
   description: 'Need to unsort an array, but don\'t want it to be random? Want to get an array mostly sorted? Look no further!'

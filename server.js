@@ -20,7 +20,7 @@ app.get('/', function(request, response){
 });
 
 app.get('/apilist', routes.list);
-app.get("*", routes.api);
+app.get('*', routes.api);
 app.post('*', routes.api);
 
 app.listen(port);

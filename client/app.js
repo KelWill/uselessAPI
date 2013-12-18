@@ -73,7 +73,7 @@ var app = angular.module('useless', [])
         if (data){
           $scope.response = "Something went wrong! Was your data properly formatted?";
         } else {
-          $scope.response = "Well...we did say it was useless... Something went wrong";
+          $scope.response = "Well...we did say it was useless... Something went wrong.";
         }
       }
     });
