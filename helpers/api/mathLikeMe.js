@@ -6,17 +6,15 @@ exports.handle = function(request, response){
   var dob = request.body;
   if (request.url === '/amiprime'){
     if (isValidDob(dob)){
-      response.send(JSON.stringify(
-        //insert function here
-        ));
+      response.send(JSON.stringify(dobIsPrime(dob)));
     } else {
       response.writeHead(400);
       response.end("Let's try a date in the past.  Please use Arabic numerals next separated by '/' next time.  Like this: 'mm/dd/year'.");
     }
-  } else if (request.url === "/mostlysort"){
-    if (checkArray(array)){
-      response.send(JSON.stringify(mostlySort(array)));
-    }
+  // } else if (request.url === "/mostlysort"){
+  //   if (checkArray(array)){
+  //     response.send(JSON.stringify(mostlySort(array)));
+  //   }
   }
 };
 
@@ -67,16 +65,10 @@ var isLeapYear = function(year){
   return new Date(year, 1, 29).getMonth() === 1;
 };
 
-var dobInDays = function(dob){
-  var date = newDate(dob);
-  var milli = new Date() - date.dateObj;
-  var days = Math.ceil(milli / (1000*60*60*24));
-  return days;
-};
-
 var isPrime = function(days){
-  if (days < 2 || days === 4) { return false; }
+  if (days < 2) { return false; }
   if (days === 2) { return true; }
+  if (days % 2 === 0) { return false; }
   
   var sqrt = Math.ceil(Math.sqrt(days));
 
@@ -88,73 +80,21 @@ var isPrime = function(days){
   return true;
 };
 
-var isAlreadySorted = function(array){
-  var ascending;
-  if (!array.length) return array;
-  if (typeof array[0] !== "number" || typeof array[1] !== "number") return false;
-  if (array.length < 2) return array;
-
-  var i = 0;
-  if (array[i] < array[i + 1])    ascending = true;
-  else if (array[i] > array[i+1]) ascending = false;
-  while (array[i + 1] !== undefined && array[i] === array[i + 1]){
-    i++;
-    if (array[i] < array[i + 1])    ascending = true;
-    else if (array[i] > array[i+1]) ascending = false;
-  }
-
-  for (i; i < array.length - 1; i++){
-    if (typeof array[i] !== "number") return false;
-    if (ascending){
-      if (array[i] > array[i + 1])    return false;
-    } else {
-      if (array[i] < array[i + 1])    return false;
-    }
-  }
-  return true;
-};
-
-
-var mostlySort = function(array){
-  if (array.length <=  2) return array;
-  var index = ~~(Math.random() * array.length);
-  var otherIndex;
-  if (array[index + 1]) {
-    otherIndex = index + 1;
-  } else {
-    otherIndex = index - 1;
-  }
-  var temp = array[index];
-  array[index] = array[otherIndex];
-  array[otherIndex] = temp;
-  return array;
-};
-
-var unsortArray1 = function(array){
-  if (array.length < 2) return array;
-  var temp;
-  for (var i = 0; i < array.length - 1; i = i + 2){
-    temp = array[i];
-    array[i] = array[i + 1];
-    array[i + 1] = temp;
-  }
-  if (array.length === 3) return array;
-  return unsortArray2(array);
+var dobIsPrime = function(dob){
+  var date = newDate(dob);
+  var milli = new Date() - date.dateObj;
+  var days = Math.ceil(milli / (1000*60*60*24));
+  return isPrime(days);
 };
 
 exports.apiEntry = {
-  title: 'Primes',
+  title: 'MathLikeMe',
   routes: [
     {
-      url: '/unsortmyarray',
+      url: '/amiprime',
       needsData: true,
-      shortDescription: "Enter a sorted array for fun and profit"
-    },
-    {
-      url: '/mostlysort',
-      needsData: true,
-      shortDescription: "Ehhh, it's close enough."
+      shortDescription: "Enter your birthday: mm/dd/yyyy"
     }
   ],
-  description: 'Need to unsort an array, but don\'t want it to? Want to get an array mostly sorted? Look no further!'
+  description: 'Are you special? Let\'s find out.'
 };
