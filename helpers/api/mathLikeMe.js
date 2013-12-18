@@ -11,10 +11,6 @@ exports.handle = function(request, response){
       response.writeHead(400);
       response.end("Let's try a date in the past.  Please use Arabic numerals next separated by '/' next time.  Like this: 'mm/dd/year'.");
     }
-  // } else if (request.url === "/mostlysort"){
-  //   if (checkArray(array)){
-  //     response.send(JSON.stringify(mostlySort(array)));
-  //   }
   }
 };
 
@@ -65,15 +61,15 @@ var isLeapYear = function(year){
   return new Date(year, 1, 29).getMonth() === 1;
 };
 
-var isPrime = function(days){
-  if (days < 2) { return false; }
-  if (days === 2) { return true; }
-  if (days % 2 === 0) { return false; }
+var isPrime = function(num){
+  if (num < 2) { return false; }
+  if (num === 2) { return true; }
+  if (num % 2 === 0) { return false; }
   
-  var sqrt = Math.ceil(Math.sqrt(days));
+  var sqrt = Math.ceil(Math.sqrt(num));
 
   for (var i=3; i<=sqrt; i+=2){
-    if (days % i === 0){
+    if (num % i === 0){
       return false;
     }
   }
@@ -84,11 +80,12 @@ var dobIsPrime = function(dob){
   var date = newDate(dob);
   var milli = new Date() - date.dateObj;
   var days = Math.ceil(milli / (1000*60*60*24));
-  return isPrime(days);
+  var val = isPrime(days);
+  return val ? "Your mother was right, you are special." : "A very uninteresting (wo)man of the crowd";
 };
 
 exports.apiEntry = {
-  title: 'MathLikeMe',
+  title: 'Math Like Me',
   routes: [
     {
       url: '/amiprime',
