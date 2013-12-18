@@ -59,7 +59,9 @@ var app = angular.module('useless', [])
   $scope.callApi = function(url){
     var method = $scope.method || "GET";
     var data = $scope.data || $scope.route.dataExample;
-    if (data){
+    //When getting values from inputs it's a string, and sometimes neeeds to be
+    //parsed. The dataNeedsParsing attribute is set in the apiEntry part of the module
+    if (route.dataNeedsParsing){
       data = JSON.parse(data);
       // If sending data, default method is POST
       method = "POST";

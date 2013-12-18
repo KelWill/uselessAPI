@@ -122,24 +122,28 @@ var sixthElementOrKangaroo = function(array) {
   }
 };
 
+//dataNeedsParsing is only relevant for example requests
 exports.apiEntry = {
   title: 'Arrays',
   routes: [
     {
       url: '/unsortmyarray',
       needsData: true,
+      dataNeedsParsing: true,
       dataExample: JSON.stringify([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]),
       shortDescription: "Enter a sorted array for fun and profit"
     },
     {
       url: '/mostlysort',
       needsData: true,
+      dataNeedsParsing: true,
       dataExample: JSON.stringify([1, 6, 3, 2, 24, 9, 12, 87, 4, 5]),
       shortDescription: "Ehhh, it's close enough."
     },
     {
       url: '/sixthelementorkangaroo',
       needsData: true,
+      dataNeedsParsing: true,
       dataExample: JSON.stringify([1, 2, 3, 4]),
       shortDescription: 'Because you need to know'
     }
