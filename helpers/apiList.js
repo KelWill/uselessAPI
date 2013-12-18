@@ -6,6 +6,8 @@ var advice          = require('./api/advice.js');
 var date            = require('./api/date.js');
 var helloworld      = require('./api/helloworld.js');
 
+console.log(date.js);
+
 exports.handler = {
   '/shadowfacts'                 : shadowfacts.handle,
   '/shadowfax'                   : shadowfacts.handle,

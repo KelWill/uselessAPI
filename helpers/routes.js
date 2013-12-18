@@ -6,5 +6,5 @@ exports.list = function(request, response){
 };
 
 exports.api = function(request, response){
-  apiList.handler[request.url](request, response);
+  apiList.handler[request.url.toLowerCase()](request, response);
 };

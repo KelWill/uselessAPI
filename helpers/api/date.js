@@ -13,15 +13,15 @@ exports.apiEntry = {
   title: 'Dates',
   routes: [
     {
-      url: '/toMacaulayCulkinTime',
+      url: '/tomacaulayculkintime',
       shortDescription: 'Yes, you want to know'
     },
     {
-      url: '/areWeInTheUNIXEra',
+      url: '/areweintheunixera',
       shortDescription: 'Things might change'
     },
     {
-      url: '/oneDayAgo',
+      url: '/onedayago',
       shortDescription: 'Was yesterday'
     }
   ],
